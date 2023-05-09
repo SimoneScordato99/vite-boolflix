@@ -1,15 +1,14 @@
 <script >
-import SearchVue from './Search.vue';
 import { store } from '../store';
 export default {
     name:'HeaderVue',
     components:{
-      SearchVue
+      
     },
     data(){
-        return{
-            store
-        }
+      return{
+          store
+      }
     }
 }
 
@@ -18,7 +17,10 @@ export default {
 <template>
     <header class="d-flex justify-content-between align-items-center p-2">
       <a class="p-2" href="#"><img src="../../public/netflix-clipart-file-3.png" alt="logo"></a>
-      <SearchVue/>
+      <div class="d-flex">
+        <input v-model="store.ricercato" type="text" name="" id="">
+        <button type="submit" @click="$emit('emitRicerca')">Cerca</button>
+      </div>
     </header>
 </template>
 

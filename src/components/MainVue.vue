@@ -2,8 +2,9 @@
 import Film from './Film.vue';
 import Serie from './serie.vue';
 import {store} from '../store';
+
 export default {
-    name:'Main',
+    name:'MainVue',
     components:{
         Film,
         Serie
@@ -12,13 +13,13 @@ export default {
         return{
             store
         }
-    }
+    },
 }
 </script>
 
 <template>
     <div class="main">
-        <Film/>
+        <Film v-for="(elem, index) in store.arrayFilmNome" :key="index" :propsFilmNome="elem"/>
         <Serie/>
     </div>
 </template>
@@ -26,5 +27,6 @@ export default {
 <style scoped lang="scss">
     .main{
         background-color: black;
+        height: 90vh;
     }
 </style>
