@@ -5,7 +5,9 @@ export default {
     props:['propsFilmNome'],
     data(){
       return{
-        store
+        store,
+        stelleGialle:'',
+        stelleMeno:'',
       }
     },
     created(){
@@ -29,7 +31,8 @@ export default {
         }
         let fabrizio = tiziano.toUpperCase()
         return fabrizio
-      }
+      },
+      
     }
 }
 </script>
@@ -39,15 +42,20 @@ export default {
       <img :src=" `https://image.tmdb.org/t/p/w342${propsFilmNome.poster_path}` " alt="">
       <div class="card-body position-absolute p-0">
         <h5 class="card-title fs-4">{{ propsFilmNome.title }}</h5>
-        <p class="card-text fs-6 p-0">{{ propsFilmNome.overview }}</p>
+        <div class="scroll position-absolute">
+          <p class="card-text  fs-6 p-0">{{ propsFilmNome.overview }}</p>
+        </div>
         <img :src=" `https://flagsapi.com/${up()}/flat/64.png`" alt="bandiera" class="card-flag position-absolute">
-        <p class="card-text card-vote fs-6 p-0 position-absolute">{{ propsFilmNome.vote_average }}</p> 
+        <div class="card-stelle d-flex position-absolute">
+          <i class="fa-solid fa-star coloreStella" v-for="(elem, index) in Math.round(this.propsFilmNome.vote_average / 2)"></i>
+          <i class="fa-solid fa-star" v-for="(elem, index) in 5 - Math.round(this.propsFilmNome.vote_average / 2)"></i>
+        </div>
       </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-    .card{
+.card{
     
     margin: 30px 30px;
     min-width: 250px;
@@ -69,6 +77,13 @@ export default {
         img{
           display: block;
         }
+        .scroll{
+          overflow-y: scroll;
+          height: 60%;
+        }
+        .coloreStella{
+          color: goldenrod;
+        }
       }
       img{
         width: 30px;
@@ -76,19 +91,26 @@ export default {
       }
       .card-text{
         text-align: center;
+        bottom: 60px;
+        left: 10px;
+      }
+      .scroll{
+        overflow-y: hidden;
+        
       }
       .card-title{
         text-align: center;
         padding-top: 15px;
       }
       .card-flag{
-        bottom: 35px;
-        left: 10px;
-      }
-      .card-vote{
         bottom: 10px;
         left: 10px;
       }
+      .card-stelle{
+        bottom: 50px;
+        left: 10px;
+      }
+      
     }
     
   }

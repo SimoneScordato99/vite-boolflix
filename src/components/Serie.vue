@@ -40,7 +40,9 @@ export default {
     <img :src=" `https://image.tmdb.org/t/p/w342${propsSerieNome.poster_path}` " alt="">
     <div class="card-body position-absolute p-0">
       <h5 class="card-title fs-4">{{ propsSerieNome.name }}</h5>
-      <p class="card-text fs-6 p-0">{{ propsSerieNome.overview }}</p>
+      <div class="scroll">
+        <p class="card-text  fs-6 p-0">{{ propsSerieNome.overview }}</p>
+      </div>
       <img :src=" `https://flagsapi.com/${up()}/shiny/64.png`" alt="bandiera" class="card-flag position-absolute">
       <p class="card-text card-vote fs-6 p-0 position-absolute">{{ propsSerieNome.vote_average }}</p> 
     </div>
@@ -70,6 +72,10 @@ export default {
         img{
           display: block;
         }
+        .scroll{
+        overflow-y: scroll;
+        height: 60%;
+        }
       }
       img{
         width: 30px;
@@ -78,6 +84,10 @@ export default {
       .card-text{
         text-align: center;
         
+      }
+      .scroll{
+        overflow-y: hidden;
+        height: 60%;
       }
       .card-title{
         text-align: center;

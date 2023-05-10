@@ -60,7 +60,8 @@ export default{
 @use './style/main.scss';
 
   .webApp{
-    
+    height: 100%;
+    background-color: black;
   }
 
 </style>
