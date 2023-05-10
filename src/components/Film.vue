@@ -79,7 +79,7 @@ export default {
         }
         .scroll{
           overflow-y: scroll;
-          height: 60%;
+          height: 210px;
         }
         .coloreStella{
           color: goldenrod;
@@ -96,11 +96,14 @@ export default {
       }
       .scroll{
         overflow-y: hidden;
+        height: 210px;
         
       }
       .card-title{
         text-align: center;
-        padding-top: 15px;
+        padding-top: 5px;
+        height: 60px;
+        overflow-y: hidden;
       }
       .card-flag{
         bottom: 10px;

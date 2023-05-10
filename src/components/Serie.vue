@@ -35,22 +35,24 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    
+  <div class="card"> 
     <img :src=" `https://image.tmdb.org/t/p/w342${propsSerieNome.poster_path}` " alt="">
     <div class="card-body position-absolute p-0">
       <h5 class="card-title fs-4">{{ propsSerieNome.name }}</h5>
-      <div class="scroll">
+      <div class="scroll position-absolute">
         <p class="card-text  fs-6 p-0">{{ propsSerieNome.overview }}</p>
       </div>
-      <img :src=" `https://flagsapi.com/${up()}/shiny/64.png`" alt="bandiera" class="card-flag position-absolute">
-      <p class="card-text card-vote fs-6 p-0 position-absolute">{{ propsSerieNome.vote_average }}</p> 
+      <img :src=" `https://flagsapi.com/${up()}/flat/64.png`" alt="bandiera" class="card-flag position-absolute">
+      <div class="card-stelle d-flex position-absolute">
+        <i class="fa-solid fa-star coloreStella" v-for="(elem, index) in Math.round(this.propsSerieNome.vote_average / 2)"></i>
+        <i class="fa-solid fa-star" v-for="(elem, index) in 5 - Math.round(this.propsSerieNome.vote_average / 2)"></i>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-   .card{
+.card{
     
     margin: 30px 30px;
     min-width: 250px;
@@ -73,8 +75,11 @@ export default {
           display: block;
         }
         .scroll{
-        overflow-y: scroll;
-        height: 60%;
+          overflow-y: scroll;
+          height: 210px;
+        }
+        .coloreStella{
+          color: goldenrod;
         }
       }
       img{
@@ -83,24 +88,29 @@ export default {
       }
       .card-text{
         text-align: center;
-        
+        bottom: 60px;
+        left: 10px;
       }
       .scroll{
         overflow-y: hidden;
-        height: 60%;
+        height: 210px;
+        
       }
       .card-title{
         text-align: center;
-        padding-top: 15px;
+        padding-top: 5px;
+        height: 60px;
+        overflow-y: hidden;
       }
       .card-flag{
-        bottom: 35px;
-        left: 10px;
-      }
-      .card-vote{
         bottom: 10px;
         left: 10px;
       }
+      .card-stelle{
+        bottom: 50px;
+        left: 10px;
+      }
+      
     }
     
   }

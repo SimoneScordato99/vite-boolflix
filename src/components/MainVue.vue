@@ -19,9 +19,11 @@ export default {
 
 <template>
     <div class="main">
+        <h2>FILM</h2>
         <div class="films">
             <Film v-for="(elem, index) in store.arrayFilmNome" :key="index" :propsFilmNome="elem"/>
         </div>
+        <h2>SERIE</h2>
         <div class="films">
             <Serie v-for="(elem, index) in store.arraySerieNome" :key="index" :propsSerieNome="elem"/>
         </div>
@@ -32,7 +34,11 @@ export default {
     .main{
         background-color: black;
         padding-bottom: 40px;
-        
+        h2{
+            color: #B81D24;
+            padding: 20px;
+            text-shadow: 1px 1px 60px #B81D24;
+        }
         .films{
             display: flex;
             justify-content: space-between;
