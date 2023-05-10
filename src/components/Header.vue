@@ -26,7 +26,7 @@ export default {
 
 <style scoped lang="scss">
   header{
-    height: 10vh;
+    height: 130px;
     background: linear-gradient(rgb(0, 0, 0) 70%, rgb(63, 63, 63));
     border: 1px solid rgb(33, 33, 33);
     a{
