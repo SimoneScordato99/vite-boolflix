@@ -50,6 +50,28 @@ export default {
           <i class="fa-solid fa-star coloreStella" v-for="(elem, index) in Math.round(this.propsFilmNome.vote_average / 2)"></i>
           <i class="fa-solid fa-star" v-for="(elem, index) in 5 - Math.round(this.propsFilmNome.vote_average / 2)"></i>
         </div>
+        <button class="bottoneCanvas position-absolute" type="button" data-bs-toggle="offcanvas" :data-bs-target=" `#${propsFilmNome.id}` " aria-controls="staticBackdrop"></button>
+      </div>
+
+      <div class="offcanvas offcanvas-end text-bg-dark" data-bs-backdrop="static" tabindex="-1" :id=' `${propsFilmNome.id}` ' aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="staticBackdropLabel">{{ propsFilmNome.title }}</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <img :src=" `https://image.tmdb.org/t/p/w342${propsFilmNome.backdrop_path}` " alt="">
+          <div class="card-body p-2">
+            <div>
+              <p class="card-text  fs-6 p-2">{{ propsFilmNome.overview }}</p>
+            </div>
+            <img :src=" `https://flagsapi.com/${up()}/flat/64.png`" alt="bandiera" class="card-flag position-absolute">
+            <div class="card-stelle d-flex ">
+              <i class="fa-solid fa-star coloreStella" v-for="(elem, index) in Math.round(this.propsFilmNome.vote_average / 2)"></i>
+              <i class="fa-solid fa-star" v-for="(elem, index) in 5 - Math.round(this.propsFilmNome.vote_average / 2)"></i>
+            </div>
+            <button class="bottoneCanvas position-absolute" type="button" data-bs-toggle="offcanvas" :data-bs-target=" `#${propsFilmNome.id}` " aria-controls="staticBackdrop"></button>
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -83,6 +105,13 @@ export default {
         }
         .coloreStella{
           color: goldenrod;
+        }
+        .bottoneCanvas{
+          background-color: rgba(0, 0, 0, 0.0);
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
         }
       }
       img{

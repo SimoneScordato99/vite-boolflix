@@ -57,7 +57,7 @@ export default{
 </template>
 
 <style lang="scss">
-@use './style/main.scss';
+@use './style/main.scss'; 
 
   .webApp{
     height: 100%;
